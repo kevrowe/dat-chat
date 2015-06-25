@@ -2,11 +2,20 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var datChatServices = angular.module('datChatServices', ['ngResource']);
 
-phonecatServices.factory('Phone', ['$resource',
+datChatServices.factory('Chat', ['$resource',
   function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+    return $resource('chat/:chatId', {}, {
+      chatList: {method:'GET', isArray:true},
+      chat: {method:'GET'}
+    });
+  }]);
+
+datChatServices.factory('ChatMessages', ['$resource',
+  function($resource){
+    return $resource('message/', { }, {
+      message: {method:'GET', isArray:true},
+      create: {method:'POST'}
     });
   }]);

@@ -2,27 +2,26 @@
 
 /* App Module */
 
-var phonecatApp = angular.module('phonecatApp', [
+var datChatApp = angular.module('datChatApp', [
   'ngRoute',
-  'phonecatAnimations',
-
-  'phonecatControllers',
-  'phonecatFilters',
-  'phonecatServices'
+  'ngSailsBind',
+  'datChatControllers',
+  'datChatFilters',
+  'datChatServices'
 ]);
 
-phonecatApp.config(['$routeProvider',
+datChatApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/phones', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
+      when('/chat', {
+        templateUrl: 'partials/chat-list.html',
+        controller: 'ChatListCtrl'
       }).
-      when('/phones/:phoneId', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/chat/:chatId', {
+        templateUrl: 'partials/chat.html',
+        controller: 'ChatCtrl'
       }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/chat'
       });
   }]);

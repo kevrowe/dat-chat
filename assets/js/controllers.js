@@ -2,21 +2,20 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var datChatControllers = angular.module('datChatControllers', []);
 
-phonecatControllers.controller('PhoneListCtrl', ['$scope', 'Phone',
-  function($scope, Phone) {
-    $scope.phones = Phone.query();
-    $scope.orderProp = 'age';
+datChatControllers.controller('ChatListCtrl', ['$scope', '$sailsBind', 'Chat',
+  function($scope, $sailsBind, Chat) {
+    $sailsBind.bind('chat', $scope);
   }]);
 
-phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', 'Phone',
-  function($scope, $routeParams, Phone) {
-    $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-      $scope.mainImageUrl = phone.images[0];
-    });
+datChatControllers.controller('ChatCtrl', ['$scope', '$routeParams', '$sailsBind', 'Chat', 'ChatMessages',
+  function($scope, $routeParams, $sailsBind, Chat, ChatMessages) {
+    $scope.chat = Chat.chat({chatId: $routeParams.chatId});
+    $sailsBind.bind('message', $scope, {'chatId': {'equals': $routeParams.chatId}})
 
-    $scope.setImage = function(imageUrl) {
-      $scope.mainImageUrl = imageUrl;
+    $scope.submitMessage = function(message) {
+    	ChatMessages.create({ chatId: $routeParams.chatId, author: $scope.userName, message: $scope.composeMessage });
+    	$scope.composeMessage = '';
     }
   }]);

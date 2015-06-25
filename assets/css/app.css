@@ -4,6 +4,9 @@ body {
   padding-top: 20px;
 }
 
+ul {
+  list-style: none;
+}
 
 .phone-images {
   background-color: white;

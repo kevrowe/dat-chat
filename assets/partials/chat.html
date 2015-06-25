@@ -1,0 +1,16 @@
+<div>
+	<h1>{{chat.name}}</h1>
+	<h2>{{chat.topic}}</h2>
+	<ul>
+		<li ng-repeat="message in messages">
+			<strong>{{message.author}}: </strong><span>{{message.message}}</span>
+		</li>
+	</ul>
+</div>
+<footer>
+	<form ng-submit="submitMessage(composeMessage)">
+		<input type="text" ng-model="userName">
+		<input type="text" ng-model="composeMessage">
+		<input type="submit">
+	</form>
+</footer>

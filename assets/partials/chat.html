@@ -1,4 +1,4 @@
-<div>
+<div class="chat">
 	<h1>{{chat.name}}</h1>
 	<h2>{{chat.topic}}</h2>
 	<ul>
@@ -11,6 +11,6 @@
 	<form ng-submit="submitMessage(composeMessage)">
 		<input type="text" ng-model="userName">
 		<input type="text" ng-model="composeMessage">
-		<input type="submit">
+		<input type="submit" style="width:0px;padding:0;border:0 none;">
 	</form>
 </footer>

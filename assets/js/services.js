@@ -8,7 +8,8 @@ datChatServices.factory('Chat', ['$resource',
   function($resource){
     return $resource('chat/:chatId', {}, {
       chatList: {method:'GET', isArray:true},
-      chat: {method:'GET'}
+      chat: {method:'GET'},
+      create: {method: 'POST'}
     });
   }]);
 

@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-md-10">
       <!--Body content-->
-
+      <ul class="controls">
+        <li><button ng-click="createChat()">New Chat</button></li>
+      </ul>
       <ul class="chats">
         <!-- <li ng-repeat="chat in chats | filter:query | orderBy:orderProp" class="thumbnail phone-listing">-->
         <li ng-repeat="chat in chats">
@@ -11,7 +13,6 @@
           <p>{{chat.topic}}</p>
         </li>
       </ul>
-
     </div>
   </div>
 </div>

@@ -3,8 +3,16 @@
     <div class="col-md-10">
       <!--Body content-->
       <ul class="controls">
-        <li><button ng-click="createChat()">New Chat</button></li>
+        <li><button ng-click="toggleCreateChat()">New Chat</button></li>
       </ul>
+      <div class="new-chat">
+      <form ng-submit="createChat(newChat.name, newChat.topic)" ng-show="newChat.visible">
+        <input type="text" ng-model="newChat.name" ng-required="true">
+        <input type="text" ng-model="newChat.topic" ng-required="true">
+        <input type="submit" value="Create Chat">
+        <input type="button" ng-click="toggleCreateChat()" value="Cancel">
+      </form>
+      </div>
       <ul class="chats">
         <!-- <li ng-repeat="chat in chats | filter:query | orderBy:orderProp" class="thumbnail phone-listing">-->
         <li ng-repeat="chat in chats">

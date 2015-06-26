@@ -7,13 +7,16 @@ var datChatControllers = angular.module('datChatControllers', []);
 datChatControllers.controller('ChatListCtrl', ['$scope', '$sailsBind', '$location', 'Chat',
   function($scope, $sailsBind, $location, Chat) {
     $sailsBind.bind('chat', $scope);
-    $scope.createChat = function() {
-    	var chat = Chat.create({ name: 'Chat #' + parseInt(Math.random() * 1000), topic: 'TODO: allow setting topic' },
+    $scope.newChat = { visible : false };
+    $scope.createChat = function(name, topic) {
+    	var chat = Chat.create({ name: name, topic: topic },
     		function(data) {
-    			console.log(data.id);
-	    		$location.path('#/chat/' + data.id);
-	    		$scope.$apply();
+	    		$location.path('/chat/' + data.id);
 	    	});
+    }
+
+    $scope.toggleCreateChat = function() {
+    	$scope.newChat.visible = !$scope.newChat.visible;
     }
   }]);
 

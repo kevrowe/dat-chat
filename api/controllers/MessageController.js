@@ -7,7 +7,7 @@
 
 module.exports = {
 	destroyMany: function (req, res) {
-		Message.find({'where': { 'chatId' : {'equals': req.query.chatId } }}).exec(function(err, messages) {
+		Message.find().where({ 'chatId' : req.query.chatId }).exec(function(err, messages) {
 			if (err) {
 				return res.serverError(err);
 			}

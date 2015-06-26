@@ -3,22 +3,22 @@
     <div class="col-md-10">
       <!--Body content-->
       <ul class="controls">
-        <li><button ng-click="toggleCreateChat()">New Chat</button></li>
+        <li><button ng-click="toggleChatCreate()">New Chat</button></li>
       </ul>
       <div class="new-chat">
-      <form ng-submit="createChat(newChat.name, newChat.topic)" ng-show="newChat.visible">
+      <form ng-submit="chatCreate(newChat.name, newChat.topic)" ng-show="newChat.visible">
         <input type="text" ng-model="newChat.name" ng-required="true">
         <input type="text" ng-model="newChat.topic" ng-required="true">
         <input type="submit" value="Create Chat">
-        <input type="button" ng-click="toggleCreateChat()" value="Cancel">
+        <button ng-click="toggleChatCreate()">Cancel</button>
       </form>
       </div>
       <ul class="chats">
-        <!-- <li ng-repeat="chat in chats | filter:query | orderBy:orderProp" class="thumbnail phone-listing">-->
         <li ng-repeat="chat in chats">
           <a href="#/chat/{{chat.id}}"><img src="//placehold.it/50x50&text=chat"></a>
           <a href="#/chat/{{chat.id}}">{{chat.name}}</a>
           <p>{{chat.topic}}</p>
+          <button ng-click="chatDelete(chat.id)" title="Delete chat">X</button>
         </li>
       </ul>
     </div>

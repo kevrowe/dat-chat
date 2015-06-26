@@ -8,14 +8,18 @@ datChatControllers.controller('ChatListCtrl', ['$scope', '$sailsBind', '$locatio
   function($scope, $sailsBind, $location, Chat) {
     $sailsBind.bind('chat', $scope);
     $scope.newChat = { visible : false };
-    $scope.createChat = function(name, topic) {
+    $scope.chatCreate = function(name, topic) {
     	var chat = Chat.create({ name: name, topic: topic },
     		function(data) {
 	    		$location.path('/chat/' + data.id);
 	    	});
     }
 
-    $scope.toggleCreateChat = function() {
+    $scope.chatDelete = function(id) {
+		Chat.delete({id: id});
+	};
+
+    $scope.toggleChatCreate = function() {
     	$scope.newChat.visible = !$scope.newChat.visible;
     }
   }]);

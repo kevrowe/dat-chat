@@ -36,6 +36,8 @@ module.exports.routes = {
   //   view: 'homepage'
   // },
 
+  'DELETE /chat/destroyWithMessages/:id': 'api/controllers/ChatController.destroyWithMessages'
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

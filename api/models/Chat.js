@@ -7,8 +7,12 @@
 
 module.exports = {
 
-  attributes: {
+	attributes: {
 
-  }
+	},
+
+	afterDestroy: function(destroyedRecords, cb) {
+		Message.destroy({owner: _.pluck(destroyedRecords, 'id')}).exec(cb);
+	}
 };
 

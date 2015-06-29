@@ -28,13 +28,13 @@ datChatControllers.controller('ChatCtrl', ['$scope', '$routeParams', '$sailsBind
   function($scope, $routeParams, $sailsBind, Chat, ChatMessages) {
     $scope.chat = Chat.chat({chatId: $routeParams.chatId});
 
-    $sailsBind.bind('message', $scope, {'chatId': {'equals': $routeParams.chatId}})
+    $sailsBind.bind('message', $scope, { 'owner': $routeParams.chatId })
 
     $scope.submitMessage = function(message) {
     	if (message.trim() === '' || $scope.userName.trim() === '') {
     		return;
     	}
-    	ChatMessages.create({ chatId: $routeParams.chatId, author: $scope.userName, message: $scope.composeMessage });
+    	ChatMessages.create({ owner: $routeParams.chatId, author: $scope.userName, message: $scope.composeMessage });
     	$scope.composeMessage = '';
     }
   }]);

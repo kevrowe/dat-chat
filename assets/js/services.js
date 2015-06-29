@@ -10,7 +10,7 @@ datChatServices.factory('Chat', ['$resource',
       chatList: {method:'GET', isArray:true},
       chat: {method:'GET'},
       create: {method: 'POST'},
-      delete: {method: 'DELETE', url: 'chat/destroyWithMessages/:id', isArray: true}
+      delete: {method: 'DELETE', url: 'chat/destroy/:id'}
     });
   }]);
 

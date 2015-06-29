@@ -7,7 +7,9 @@
 
 module.exports = {
 	attributes: {
-
+		owner: {
+			model:'chat'
+		}
 	}
 };
 

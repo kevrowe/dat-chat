@@ -1,5 +1,5 @@
 /**
-* User.js
+* Round.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -8,19 +8,17 @@
 module.exports = {
 
   attributes: {
-  	'name': {
-  		type: 'string',
-  		required: true
+  	tsar: {
+  		model: 'User'
   	},
-  	'socialIdentifier': {
-  		type: 'string'
+  	winner: {
+  		model: 'User'
   	},
-  	'email': {
-  		type: 'string'
+  	blackCard: {
+  		model: 'BlackCard'
   	},
-  	'password': {
-  		type: 'string',
-  		required: true
+  	whiteCards: {
+  		collection: 'WhiteCard'
   	}
   }
 };

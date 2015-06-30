@@ -8,16 +8,16 @@
 module.exports = {
 
   attributes: {
-  	tsar: {
+  	'tsar': {
   		model: 'User'
   	},
-  	winner: {
+  	'winner': {
   		model: 'User'
   	},
-  	blackCard: {
+  	'blackCard': {
   		model: 'BlackCard'
   	},
-  	whiteCards: {
+  	'whiteCards': {
   		collection: 'WhiteCard'
   	}
   }

@@ -4,13 +4,13 @@
 
 var datChatServices = angular.module('datChatServices', ['ngResource']);
 
-datChatServices.factory('Chat', ['$resource',
+datChatServices.factory('Game', ['$resource',
   function($resource){
-    return $resource('chat/:chatId', {}, {
-      chatList: {method:'GET', isArray:true},
-      chat: {method:'GET'},
+    return $resource('game/:gameId', {}, {
+      gameList: {method:'GET', isArray: true},
+      get: {method:'GET'},
       create: {method: 'POST'},
-      delete: {method: 'DELETE', url: 'chat/destroy/:id'}
+      delete: {method: 'DELETE', url: 'game/destroy/:id'}
     });
   }]);
 

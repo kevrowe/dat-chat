@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+      <!--Body content-->
+      <ul class="controls">
+        <li><button ng-click="toggleGameCreate()">New Game</button></li>
+      </ul>
+      <div class="new-game">
+      <form ng-submit="gameCreate(newGame.name)" ng-show="newGame.visible">
+        <input type="text" ng-model="newGame.name" ng-required="true">
+        <input type="submit" value="Create Game">
+        <button ng-click="toggleGameCreate()">Cancel</button>
+      </form>
+      </div>
+      <ul class="games">
+        <li ng-repeat="game in games">
+          <a href="#/game/{{game.id}}"><img src="//placehold.it/50x50&text=game"></a>
+          <a href="#/game/{{game.id}}">{{game.name}}</a>
+          <p>{{game.topic}}</p>
+          <button ng-click="gameDelete(game.id)" title="Delete game">X</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -13,15 +13,19 @@ var datChatApp = angular.module('datChatApp', [
 datChatApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/chat', {
-        templateUrl: 'partials/chat-list.html',
-        controller: 'ChatListCtrl'
+      when('/game', {
+        templateUrl: 'partials/game-list.html',
+        controller: 'GameListCtrl'
+      }).
+      when('/game/:gameId', {
+        templateUrl: 'partials/game.html',
+        controller: 'GameCtrl'
       }).
       when('/chat/:chatId', {
         templateUrl: 'partials/chat.html',
         controller: 'ChatCtrl'
       }).
       otherwise({
-        redirectTo: '/chat'
+        redirectTo: '/game'
       });
   }]);

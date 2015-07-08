@@ -6,6 +6,9 @@
  */
 
 module.exports = {
-	
+	addRound: function (gameId, roundId) {
+		var game = Game.find({id: gameId}),
+			round = Round.find({id: roundId});
+	}
 };
 

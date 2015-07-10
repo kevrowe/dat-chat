@@ -36,6 +36,7 @@ module.exports.routes = {
   //   view: 'homepage'
   // },
 
+  'GET /game/populate/:id': 'api/controllers/GameController.populate',
   'DELETE /chat/destroyWithMessages/:id': 'api/controllers/ChatController.destroyWithMessages'
 
   /***************************************************************************

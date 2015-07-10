@@ -9,6 +9,7 @@ datChatServices.factory('Game', ['$resource',
     return $resource('game/:gameId', {}, {
       gameList: {method:'GET', isArray: true},
       get: {method:'GET'},
+      populate: {method: 'GET', url: 'game/populate/:id'},
       create: {method: 'POST'},
       delete: {method: 'DELETE', url: 'game/destroy/:id'}
     });

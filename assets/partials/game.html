@@ -1,13 +1,13 @@
-<h1>{{games[0].name}}</h1>
+<h1>{{game.name}}</h1>
 <section>
 <aside>
 	<h2>Players</h2>
 	<ul>
-		<li ng-repeat="user in games[0].users">{{user.name}}</li>
+		<li ng-repeat="user in game.users">{{user.name}}</li>
 	</ul>
 </aside>
-<article class="round" ng-repeat="round in games[0].rounds">
-	<h2>Tsar: {{round.tsar}}</h2>
+<article class="round" ng-repeat="round in game.rounds">
+	<h2>Tsar: {{round.tsar.name}}</h2>
 	<strong>Black card: {{round.blackCard.text}}</strong>
 </article>
 </section>

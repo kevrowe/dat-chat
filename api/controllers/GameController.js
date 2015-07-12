@@ -14,6 +14,9 @@ module.exports = {
 			.populate('rounds')
 			.populate('users')
 			.then(function(game) {
+				Game.subscribe(req.socket, game);
+				Round.subscribe(req.socket, game.rounds);
+
 				var roundBlackCards = BlackCard.find({
 					id: _.pluck(game.rounds, 'blackCard')
 				})

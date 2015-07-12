@@ -26,10 +26,22 @@ datChatControllers.controller('GameListCtrl', ['$scope', '$sailsBind', '$locatio
 
 datChatControllers.controller('GameCtrl', ['$scope', '$routeParams', '$sailsBind', 'Game',
     function($scope, $routeParams, $sailsBind, Game) {
-        // TODO: Work out how to bind socket to custom game/populate action
-        // $sailsBind.bind('game', $scope, { 'id': $routeParams.gameId });
-        $scope.game = Game.populate({ id: $routeParams.gameId });
-        // console.log(socket.get('/game/populate/1'));
+        // $scope.game = Game.populate({ id: $routeParams.gameId });
+
+        io.socket.get('/game/populate', { id: $routeParams.gameId }, function(sockData) {
+            $scope.game = sockData;
+            $scope.$apply();
+        });
+
+        io.socket.on('game', function(sockRes) {
+            var newGame = sockRes.data;
+            for (var i in newGame) {
+                $scope.game[i] = newGame[i];
+            }
+            $scope.$apply();
+        });
+
+        // Bind to rounds to update
 
         $scope.gameNewRound = function() {
             var round = Round.create({ tsar: 2, blackCard: 1 }, 
